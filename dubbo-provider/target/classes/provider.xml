@@ -1,0 +1,11 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <dubbo:application name="provider"/>
+    <dubbo:registry address="multicast://224.1.2.3:2345"/>
+    <dubbo:protocol name="dubbo" port="8888"/>
+    <bean id="sayHiServiceImpl" class="com.dubbo.impl.SayHiServiceImpl"/>
+    <dubbo:service interface="com.dubbo.api.SayHiService" ref="sayHiServiceImpl"/>
+</beans>
